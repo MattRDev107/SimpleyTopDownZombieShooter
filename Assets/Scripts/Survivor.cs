@@ -10,7 +10,7 @@ public class Survivor : MonoBehaviour
 
 	private Rigidbody2D _rb;
 
-	private void Start()
+	private void Awake()
 	{
 		_rb = gameObject.GetComponent<Rigidbody2D>();
 	}
@@ -18,7 +18,6 @@ public class Survivor : MonoBehaviour
 	public void Move(Vector2 movementDir)
 	{
 		Vector2 movePos = _rb.position + movementDir.normalized * moveSpeed * Time.fixedDeltaTime;
-
 		_rb.MovePosition(movePos);
 	}
 }
