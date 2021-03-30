@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Inputs/PlayerInputAction.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/InputsActions/PlayerInputAction.inputactions'
 
 using System;
 using System.Collections;
@@ -8,10 +8,10 @@ using UnityEngine.InputSystem.Utilities;
 
 namespace MoonlanderCode.Input
 {
-    public class @PlayerInputAction : IInputActionCollection, IDisposable
+    public class @PlayerInputs : IInputActionCollection, IDisposable
     {
         public InputActionAsset asset { get; }
-        public @PlayerInputAction()
+        public @PlayerInputs()
         {
             asset = InputActionAsset.FromJson(@"{
     ""name"": ""PlayerInputAction"",
@@ -22,7 +22,7 @@ namespace MoonlanderCode.Input
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""2eb9c233-3861-4b96-aa22-3bbb9e0cedbf"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -431,8 +431,8 @@ namespace MoonlanderCode.Input
         private readonly InputAction m_Player_PistolSlot;
         public struct PlayerActions
         {
-            private @PlayerInputAction m_Wrapper;
-            public PlayerActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
+            private @PlayerInputs m_Wrapper;
+            public PlayerActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
             public InputAction @Movement => m_Wrapper.m_Player_Movement;
             public InputAction @MousePos => m_Wrapper.m_Player_MousePos;
             public InputAction @Sprint => m_Wrapper.m_Player_Sprint;

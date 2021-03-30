@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using MoonlanderCode.MathTools;
+using RitchiesCode.Utilities;
 using NUnit.Framework;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using Object = UnityEngine.Object;
 
-namespace MoonlanderCode.Tests.PlayMode
+namespace TopDownShooter.Tests.PlayMode
 {
 	public class SurvivorTests
 	{
@@ -28,9 +28,8 @@ namespace MoonlanderCode.Tests.PlayMode
 			[UnityTest]
 			public IEnumerator Vector_Z_Is_Zero()
 			{
-				GameObject gameObject = new GameObject();
-				Survivor survivor = gameObject.AddComponent<Survivor>();
-				gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
+				Survivor survivor = A.Survivor.With<Rigidbody2D>();
+				survivor.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
 
 				survivor.Move(Vector2.up);
 
@@ -42,9 +41,8 @@ namespace MoonlanderCode.Tests.PlayMode
 			[UnityTest]
 			public IEnumerator No_Direction_Then_No_Change()
 			{
-				GameObject gameObject = new GameObject();
-				Survivor survivor = gameObject.AddComponent<Survivor>();
-				gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
+				Survivor survivor = A.Survivor.With<Rigidbody2D>();
+				survivor.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
 
 				survivor.Move(Vector2.zero);
 
@@ -56,9 +54,8 @@ namespace MoonlanderCode.Tests.PlayMode
 			[UnityTest]
 			public IEnumerator Up_Direction_Then_Move_Up()
 			{
-				GameObject gameObject = new GameObject();
-				Survivor survivor = gameObject.AddComponent<Survivor>();
-				gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
+				Survivor survivor = A.Survivor.With<Rigidbody2D>();
+				survivor.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
 
 				float duration = Time.time + 1.0f;
 				while (Time.time < duration)
@@ -67,15 +64,14 @@ namespace MoonlanderCode.Tests.PlayMode
 					yield return new WaitForFixedUpdate();
 				}
 
-				Assert.AreEqual( new Vector3(0f, 1f,0f) * survivor.moveSpeed , MathT.VectorRound(survivor.transform.position));
+				Assert.AreEqual( new Vector3(0f, 1f,0f) * survivor.MoveSpeed, MathT.VectorRound(survivor.transform.position));
 			}
 
 			[UnityTest]
 			public IEnumerator Down_Direction_Then_Move_Down()
 			{
-				GameObject gameObject = new GameObject();
-				Survivor survivor = gameObject.AddComponent<Survivor>();
-				gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
+				Survivor survivor = A.Survivor.With<Rigidbody2D>();
+				survivor.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
 
 				float duration = Time.time + 1.0f;
 				while (Time.time < duration)
@@ -84,15 +80,14 @@ namespace MoonlanderCode.Tests.PlayMode
 					yield return new WaitForFixedUpdate();
 				}
 
-				Assert.AreEqual(new Vector3(0f, -1f, 0f) * survivor.moveSpeed, MathT.VectorRound(survivor.transform.position));
+				Assert.AreEqual(new Vector3(0f, -1f, 0f) * survivor.MoveSpeed, MathT.VectorRound(survivor.transform.position));
 			}
 
 			[UnityTest]
 			public IEnumerator Left_Direction_Then_Move_Left()
 			{
-				GameObject gameObject = new GameObject();
-				Survivor survivor = gameObject.AddComponent<Survivor>();
-				gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
+				Survivor survivor = A.Survivor.With<Rigidbody2D>();
+				survivor.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
 
 				float duration = Time.time + 1.0f;
 				while (Time.time < duration)
@@ -101,15 +96,14 @@ namespace MoonlanderCode.Tests.PlayMode
 					yield return new WaitForFixedUpdate();
 				}
 
-				Assert.AreEqual(new Vector3(-1f, 0f, 0f) * survivor.moveSpeed, MathT.VectorRound(survivor.transform.position));
+				Assert.AreEqual(new Vector3(-1f, 0f, 0f) * survivor.MoveSpeed, MathT.VectorRound(survivor.transform.position));
 			}
 
 			[UnityTest]
 			public IEnumerator Right_Direction_Then_Move_Right()
 			{
-				GameObject gameObject = new GameObject();
-				Survivor survivor = gameObject.AddComponent<Survivor>();
-				gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
+				Survivor survivor = A.Survivor.With<Rigidbody2D>();
+				survivor.GetComponent<Rigidbody2D>().gravityScale = 0.0f;
 
 				float duration = Time.time + 1.0f;
 				while (Time.time < duration)
@@ -118,7 +112,7 @@ namespace MoonlanderCode.Tests.PlayMode
 					yield return new WaitForFixedUpdate();
 				}
 
-				Assert.AreEqual(new Vector3(1f, 0f, 0f) * survivor.moveSpeed, MathT.VectorRound(survivor.transform.position));
+				Assert.AreEqual(new Vector3(1f, 0f, 0f) * survivor.MoveSpeed, MathT.VectorRound(survivor.transform.position));
 			}
 		}
 	}

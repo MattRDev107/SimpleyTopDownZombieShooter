@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Survivor : MonoBehaviour
 {
-
-	public float moveSpeed = 5.0f;
+	public float MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
+	private float _moveSpeed = 5.0f;
 
 	private Rigidbody2D _rb;
 
@@ -17,7 +17,7 @@ public class Survivor : MonoBehaviour
 
 	public void Move(Vector2 movementDir)
 	{
-		Vector2 movePos = _rb.position + movementDir.normalized * moveSpeed * Time.fixedDeltaTime;
+		Vector2 movePos = _rb.position + movementDir.normalized * _moveSpeed * Time.fixedDeltaTime;
 		_rb.MovePosition(movePos);
 	}
 }

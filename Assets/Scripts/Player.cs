@@ -1,4 +1,5 @@
 using MoonlanderCode.Input;
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,14 +9,14 @@ public class Player : MonoBehaviour
 	private Survivor _survivor;
 	private Vector2 _movementDir;
 	
-	private PlayerInputAction _input;
+	private PlayerInputs _input;
 
 	private void OnEnable() => _input.Enable();
 	private void OnDisable() => _input.Disable();
 
 	private void Awake()
 	{
-		_input = new PlayerInputAction();
+		_input = new PlayerInputs();
 
 		_input.Player.Movement.performed += ctx => _movementDir = ctx.ReadValue<Vector2>();
 	}
