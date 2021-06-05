@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace MoonlanderCode.Core
+namespace TDS.Core
 {
     public class @PlayerInputs : IInputActionCollection, IDisposable
     {

@@ -1,34 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
+using TDS.Core;
+using TDS.TopdownCamera.CameraFollow;
 using UnityEngine;
 
-public class TopDownCamera : MonoBehaviour
+namespace TDS.TopdownCamera
 {
-	[SerializeField] private Transform _targetPos;
-	
-	private IFollow _follow;
-
-	private void Awake()
+	public class TopDownCamera : MonoBehaviour
 	{
-		
-		if(!TryGetComponent(out _follow))
+		[SerializeField] private Transform _targetPos;
+
+		private IFollow _follow;
+
+		private void Awake()
 		{
-			gameObject.AddComponent<NullFollow>();
-			Debug.LogWarning("Follow type have not be assigned to the Object");
+
+			if (!TryGetComponent(out _follow))
+			{
+				gameObject.AddComponent<NullFollow>();
+				Debug.LogWarning("Follow type have not be assigned to the Object");
+			}
+
+			RepositionCamera();
 		}
 
-		RepositionCamera();
-	}
+		private void FixedUpdate()
+		{
+			RepositionCamera();
+		}
 
-	private void FixedUpdate()
-	{
-		RepositionCamera();
-	}
+		public void RepositionCamera()
+		{
+			_follow.UpdateTargetPosition(_targetPos.position);
 
-	public void RepositionCamera()
-	{
-		_follow.UpdateTargetPosition(_targetPos.position);
-
-		transform.position = _follow.GetPosition();
+			transform.position = _follow.GetPosition();
+		}
 	}
 }

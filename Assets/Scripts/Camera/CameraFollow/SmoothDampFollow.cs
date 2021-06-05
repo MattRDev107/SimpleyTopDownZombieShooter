@@ -1,7 +1,8 @@
 ﻿using System.Collections;
+using TDS.Core;
 using UnityEngine;
 
-namespace TDS.Core.Camera
+namespace TDS.TopdownCamera.CameraFollow
 {
 	public class SmoothDampFollow : MonoBehaviour, IFollow
 	{

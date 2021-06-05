@@ -1,8 +1,7 @@
-﻿using System.Collections;
+﻿using TDS.Core;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 
-namespace TDS.Core.Camera
+namespace TDS.TopdownCamera.CameraFollow
 {
 	public class LerpCameraFollow : MonoBehaviour, IFollow
 	{

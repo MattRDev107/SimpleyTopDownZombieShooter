@@ -2,11 +2,10 @@ using System;
 using System.Collections;
 using RitchiesCode.Utilities;
 using NUnit.Framework;
-using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.TestTools;
 using Object = UnityEngine.Object;
+using TDS.Entites.Survivor;
 
 namespace TopDownShooter.Tests.PlayMode
 {

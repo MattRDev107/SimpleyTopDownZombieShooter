@@ -1,17 +1,21 @@
-﻿using UnityEngine;
+﻿using TDS.Core;
+using UnityEngine;
 
-public class SurvivorMovePositionMovement : MonoBehaviour, IMovement
+namespace TDS.Entites.Survivor
 {
-	private Rigidbody2D _rb;
-
-	private void Awake()
+	public class SurvivorMovePositionMovement : MonoBehaviour, IMovement
 	{
-		_rb = gameObject.GetComponent<Rigidbody2D>();
-	}
+		private Rigidbody2D _rb;
 
-	public void HandleMovement(Vector2 movement)
-	{
-		Vector2 currentMovement = _rb.position + movement * Time.fixedDeltaTime;
-		_rb.MovePosition(currentMovement);
+		private void Awake()
+		{
+			_rb = gameObject.GetComponent<Rigidbody2D>();
+		}
+
+		public void HandleMovement(Vector2 movement)
+		{
+			Vector2 currentMovement = _rb.position + movement * Time.fixedDeltaTime;
+			_rb.MovePosition(currentMovement);
+		}
 	}
 }

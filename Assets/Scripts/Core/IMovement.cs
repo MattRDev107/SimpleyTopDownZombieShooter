@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-internal interface IMovement
+namespace TDS.Core
 {
-	public void HandleMovement(Vector2 movement);
+	internal interface IMovement
+	{
+		public void HandleMovement(Vector2 movement);
+	}
 }

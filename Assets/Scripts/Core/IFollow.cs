@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 
-public interface IFollow
+namespace TDS.Core
 {
-	public void UpdateTargetPosition(Vector3 targetPosition);
+	public interface IFollow
+	{
+		public void UpdateTargetPosition(Vector3 targetPosition);
 
-	public Vector3 GetPosition();
+		public Vector3 GetPosition();
+	}
 }

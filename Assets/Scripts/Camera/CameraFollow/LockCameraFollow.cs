@@ -1,7 +1,8 @@
 ﻿using System.Collections;
+using TDS.Core;
 using UnityEngine;
 
-namespace Assets
+namespace TDS.TopdownCamera.CameraFollow
 {
 	public class LockCameraFollow: MonoBehaviour, IFollow
 	{

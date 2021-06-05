@@ -1,16 +1,19 @@
 ﻿using System.Collections;
+using TDS.Core;
 using UnityEngine;
 
-
-public class NullFollow :MonoBehaviour, IFollow
+namespace TDS.TopdownCamera.CameraFollow
 {
-	public Vector3 GetPosition()
+	public class NullFollow : MonoBehaviour, IFollow
 	{
-		return transform.position;
-	}
+		public Vector3 GetPosition()
+		{
+			return transform.position;
+		}
 
-	public void UpdateTargetPosition(Vector3 position)
-	{
+		public void UpdateTargetPosition(Vector3 position)
+		{
 
+		}
 	}
 }

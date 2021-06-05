@@ -1,20 +1,23 @@
 ﻿using System.Collections;
 using System.Runtime.CompilerServices;
+using TDS.Core;
 using UnityEngine;
 
-
-public class SurvivorVelocityMovement : MonoBehaviour, IMovement
+namespace TDS.Entites.Survivor
 {
-
-	private Rigidbody2D _rb;
-
-	private void Awake()
+	public class SurvivorVelocityMovement : MonoBehaviour, IMovement
 	{
-		_rb = gameObject.GetComponent<Rigidbody2D>();
-	}
 
-	public void HandleMovement(Vector2 movement)
-	{
-		_rb.velocity = movement;
+		private Rigidbody2D _rb;
+
+		private void Awake()
+		{
+			_rb = gameObject.GetComponent<Rigidbody2D>();
+		}
+
+		public void HandleMovement(Vector2 movement)
+		{
+			_rb.velocity = movement;
+		}
 	}
 }

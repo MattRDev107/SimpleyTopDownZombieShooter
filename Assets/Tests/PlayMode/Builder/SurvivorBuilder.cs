@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TDS.Entites.Survivor;
+using UnityEngine;
 
 public class SurvivorBuilder
 {
